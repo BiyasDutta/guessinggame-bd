@@ -1,3 +1,3 @@
-guessinggame.sh by Biyas Dutta
-Tue Jun  2 13:35:38 IST 2020
-20
+Bash script to guess number of files.
+Tue Jun  2 15:50:06 IST 2020
+28

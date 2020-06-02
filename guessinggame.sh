@@ -1,20 +1,28 @@
-guessinggame() {
-	flag=0
-	rcnt=$(ls | awk 'END {print NR}')
-	while [[ $flag -eq 0 ]]
+filescount() {
+	
+	actual=$(ls -l | awk 'END {print NR}')
+	let actual=$actual-1
+	correct=0
+	
+	while [[ $correct -eq "no" ]]
 	do
-		echo "How many files in this directory? Take a guess..."
-		read gcnt
-		if [[ $gcnt -eq $rcnt ]]
+		echo "Make a guess."
+		read input
+		
+		if [[ $input -eq $actual ]]
 		then
-			echo "Congratulations! You are correct!"
-			let flag=1
-		elif [[ $gcnt -lt $rcnt ]]
+			echo "Right answer."
+			let correct=1
+		elif [[ $input -lt $actual ]]
 		then
-			echo "You guessed too low! Try again."
-		else [[ $gcnt -gt $rcnt ]]
-			echo "You guessed too high! Try again."
+			echo "Too low! Please try again."
+		else [[ $input -gt $actual ]]
+			echo "Too high! Please try again."
 		fi
+		
 	done
 }
-guessinggame
+
+echo "Lets play a game! Guess the number of files in this directory."
+
+filescount

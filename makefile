@@ -1,4 +1,4 @@
 all:
-	echo "guessinggame.sh by Biyas Dutta" > README.md
+	echo "Bash script to guess number of files." > README.md
 	date >> README.md
 	awk 'END {print NR}' guessinggame.sh >> README.md
